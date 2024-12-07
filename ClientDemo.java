@@ -23,33 +23,24 @@ public class ClientDemo {
       dept1.setLocation("Building A");
       dept1.setHodName("Dr. Alice");
 
-//      Department dept2 = new Department();
-//      dept2.setName("Mechanical Engineering");
-//      dept2.setLocation("Building B");
-//      dept2.setHodName("Dr. Bob");
-//
-//      Department dept3 = new Department();
-//      dept3.setName("Electrical Engineering");
-//      dept3.setLocation("Building C");
-//      dept3.setHodName("Dr. Charlie");
+
 
       session.save(dept1);
-//      session.save(dept2);
-//      session.save(dept3);
+
       
       
       String hql = "UPDATE Department SET name = ?1, location = ?2 WHERE id = ?3";
       Query query = session.createQuery(hql);
 
-      // Set positional parameters
+      
       query.setParameter(1, "Updated Department Name");
       query.setParameter(2, "Updated Location");
-      query.setParameter(3, 1); // Example: Update department with ID 1
+      query.setParameter(3, 1); 
 
       int rowsAffected = query.executeUpdate();
       System.out.println("Rows updated: " + rowsAffected);
 
-      // Commit the transaction for update
+      
       session.getTransaction().commit();
 
     
